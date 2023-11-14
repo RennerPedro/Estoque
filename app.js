@@ -21,10 +21,12 @@ function abrirInterface() {
         </select>
         
         <label for="marcaProduto">Marca:</label>
-        <input type="text" id="marcaProduto" name="marcaProduto" required>
+        <select id="marcaProduto" name="marcaProduto" required>
+            <!-- Opções de marca aqui -->
         
         <label for="fornecedorProduto">Fornecedor:</label>
-        <input type="text" id="fornecedorProduto" name="fornecedorProduto" required>
+        <select id="fornecedorProduto" name="fornecedorProduto" required>
+            <!-- Opções de fornecedor aqui -->
 
         <button type="submit">Adicionar</button>
     `;
