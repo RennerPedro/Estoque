@@ -1,97 +1,3 @@
-// Adicionar
-function abrirInterface() {
-    // Criação de elementos HTML para a interface
-    var overlay = document.createElement('div');
-    overlay.className = 'overlay';
-
-    var interface = document.createElement('div');
-    interface.className = 'interface';
-
-    var formulario = document.createElement('form');
-    formulario.innerHTML = `
-        <label for="nomeProduto">Nome do Produto:</label>
-        <input type="text" id="nomeProduto" name="nomeProduto" required>
-        
-        <label for="precoProduto">Preço:</label>
-        <input type="text" id="precoProduto" name="precoProduto" required>
-        
-        <label for="categoriaProduto">Categoria:</label>
-        <select id="categoriaProduto" name="categoriaProduto" required>
-            <!-- Opções de categoria aqui -->
-        </select>
-        
-        <label for="marcaProduto">Marca:</label>
-        <select id="marcaProduto" name="marcaProduto" required>
-            <!-- Opções de marca aqui -->
-        
-        <label for="fornecedorProduto">Fornecedor:</label>
-        <select id="fornecedorProduto" name="fornecedorProduto" required>
-            <!-- Opções de fornecedor aqui -->
-
-        <button type="submit">Adicionar</button>
-    `;
-
-    // Adiciona o formulário à interface
-    interface.appendChild(formulario);
-
-    // Adiciona a interface ao overlay
-    overlay.appendChild(interface);
-
-    // Adiciona o overlay ao corpo do documento
-    document.body.appendChild(overlay);
-
-    // Impede que o scroll da página principal seja possível enquanto a interface estiver aberta
-    document.body.style.overflow = 'hidden';
-
-    // Adiciona um ouvinte de evento para fechar a interface quando o formulário é enviado
-    formulario.addEventListener('submit', function (event) {
-        event.preventDefault();
-        fecharInterface();
-    });
-}
-
-//Excluir ou vender
-function fecharInterface() {
-    // Remove o overlay e reabilita o scroll da página principal
-    var overlay = document.querySelector('.overlay');
-    document.body.removeChild(overlay);
-    document.body.style.overflow = 'auto';
-}
-
-function abrirInterfaceExcluir() {
-    var overlay = document.createElement('div');
-    overlay.className = 'overlay';
-
-    var interface = document.createElement('div');
-    interface.className = 'interface';
-
-    var formulario = document.createElement('form');
-    formulario.innerHTML = `
-        <label for="produtoExistente">Selecione o Produto:</label>
-        <select id="produtoExistente" name="produtoExistente" required>
-            <!-- Opções de produtos existentes aqui -->
-        </select>
-        
-        <label for="quantidadeRemover">Quantidade a Remover/Vender:</label>
-        <input type="number" id="quantidadeRemover" name="quantidadeRemover" min="1" required>
-
-        <button type="submit">Excluir/Vender</button>
-    `;
-
-    interface.appendChild(formulario);
-    overlay.appendChild(interface);
-    document.body.appendChild(overlay);
-
-    document.body.style.overflow = 'hidden';
-
-    formulario.addEventListener('submit', function (event) {
-        event.preventDefault();
-        // Lógica para excluir/vender o produto
-        fecharInterface();
-    });
-}
-
-
 //Banco de dados
 const express = require('express');
 const sql = require('mssql');
@@ -138,3 +44,99 @@ const port = 3000;
 app.listen(port, () => {
   console.log(`Servidor iniciado na porta ${port}`);
 });
+
+
+// Adicionar
+function abrirInterface() {
+    // Criação de elementos HTML para a interface
+    var overlay = document.createElement('div');
+    overlay.className = 'overlay';
+
+    var interface = document.createElement('div');
+    interface.className = 'interface';
+
+    var formulario = document.createElement('form');
+    formulario.innerHTML = `
+        <label for="nomeProduto">Nome do Produto:</label>
+        <input type="text" id="nomeProduto" name="nomeProduto" required>
+        
+        <label for="precoProduto">Preço:</label>
+        <input type="text" id="precoProduto" name="precoProduto" required>
+        
+        <label for="categoriaProduto">Categoria:</label>
+        <select id="idCategoria" name="categoriaProduto" required>
+            <!-- Opções de categoria aqui -->
+        </select>
+        
+        <label for="marcaProduto">Marca:</label>
+        <select id="idMarca" name="marcaProduto" required>
+            <!-- Opções de marca aqui -->
+        
+        <label for="fornecedorProduto">Fornecedor:</label>
+        <select id="idFornecedor" name="fornecedorProduto" required>
+            <!-- Opções de fornecedor aqui -->
+
+        <button type="submit">Adicionar</button>
+    `;
+
+    // Adiciona o formulário à interface
+    interface.appendChild(formulario);
+
+    // Adiciona a interface ao overlay
+    overlay.appendChild(interface);
+
+    // Adiciona o overlay ao corpo do documento
+    document.body.appendChild(overlay);
+
+    // Impede que o scroll da página principal seja possível enquanto a interface estiver aberta
+    document.body.style.overflow = 'hidden';
+
+    // Adiciona um ouvinte de evento para fechar a interface quando o formulário é enviado
+    formulario.addEventListener('submit', function (event) {
+        event.preventDefault();
+        fecharInterface();
+    });
+}
+
+//Excluir ou vender
+function fecharInterface() {
+    // Remove o overlay e reabilita o scroll da página principal
+    var overlay = document.querySelector('.overlay');
+    document.body.removeChild(overlay);
+    document.body.style.overflow = 'auto';
+}
+
+function abrirInterfaceExcluir() {
+    var overlay = document.createElement('div');
+    overlay.className = 'overlay';
+
+    var interface = document.createElement('div');
+    interface.className = 'interface';
+
+    var formulario = document.createElement('form');
+    formulario.innerHTML = `
+        <label for="produtoExistente">Selecione o Produto:</label>
+        <select id="ID" name="produtoExistente" required>
+            <!-- Opções de produtos existentes aqui -->
+        </select>
+        
+        <label for="quantidadeRemover">Quantidade a Remover/Vender:</label>
+        <input type="number" id="idEstoque" name="quantidadeRemover" min="1" required>
+
+        <button type="submit">Excluir/Vender</button>
+    `;
+
+    interface.appendChild(formulario);
+    overlay.appendChild(interface);
+    document.body.appendChild(overlay);
+
+    document.body.style.overflow = 'hidden';
+
+    formulario.addEventListener('submit', function (event) {
+        event.preventDefault();
+        // Lógica para excluir/vender o produto
+        fecharInterface();
+    });
+}
+
+
