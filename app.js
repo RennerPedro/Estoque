@@ -45,7 +45,7 @@ app.listen(port, () => {
   console.log(`Servidor iniciado na porta ${port}`);
 });
 
-
+/*
 // Adicionar
 function abrirInterface() {
     // Criação de elementos HTML para a interface
@@ -96,7 +96,70 @@ function abrirInterface() {
         event.preventDefault();
         fecharInterface();
     });
+}*/
+
+function abrirInterface() {
+  var overlay = document.createElement('div');
+  overlay.className = 'overlay';
+
+  var interface = document.createElement('div');
+  interface.className = 'interface';
+
+  var formulario = document.createElement('form');
+  formulario.innerHTML = `
+      <label for="nomeProduto">Nome do Produto:</label>
+      <input type="text" id="Nome" name="nomeProduto" required>
+      
+      <label for="precoProduto">Preço:</label>
+      <input type="text" id="Preco" name="precoProduto" required>
+      
+      <label for="categoriaProduto">Categoria:</label>
+      <select id="idCategoria" name="categoriaProduto" required>
+          <!-- Opções de categoria aqui -->
+      </select>
+      
+      <label for="marcaProduto">Marca:</label>
+        <select id="idMarca" name="marcaProduto" required>
+            <!-- Opções de marca aqui -->
+
+      <label for="fornecedorProduto">Fornecedor:</label>
+        <select id="idFornecedor" name="fornecedorProduto" required>
+            <!-- Opções de marca aqui -->
+
+      <button type="submit">Adicionar</button>
+  `;
+
+  interface.appendChild(formulario);
+  overlay.appendChild(interface);
+  document.body.appendChild(overlay);
+
+  document.body.style.overflow = 'hidden';
+
+  formulario.addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      // Obter valores dos campos do formulário
+      var idProduto = document.getElementById('ID').value;
+      var nomeProduto = document.getElementById('Nome').value;
+      var precoProduto = document.getElementById('Preco').value;
+      var categoriaProduto = document.getElementById('idCategoria').value;
+      var marcaProduto = document.getElementById('idMarca').value;
+      var fornecedorProduto = document.getElementById('idFornecedor').value;
+      var estoqueProduto = document.getElementById('idEstoque').value;
+
+      // Enviar dados para o backend ou realizar outras operações
+      console.log('Nome:', Nome);
+      console.log('Preço:', Preco);
+      console.log('Categoria:', idCategoria);
+      console.log('Marca:', idMarca);
+      console.log('Fornecedor:', idFornecedor);
+      console.log('Estoque:', idEstoque);
+
+      // Fechar a interface após a submissão
+      fecharInterface();
+  });
 }
+
 
 //Excluir ou vender
 function fecharInterface() {
@@ -137,6 +200,69 @@ function abrirInterfaceExcluir() {
         // Lógica para excluir/vender o produto
         fecharInterface();
     });
+}
+
+function abrirInterfaceAtualizar() {
+  var overlay = document.createElement('div');
+  overlay.className = 'overlay';
+
+  var interface = document.createElement('div');
+  interface.className = 'interface';
+
+  var formulario = document.createElement('form');
+  formulario.innerHTML = `
+      <label for="produtoExistenteAtualizar">Selecione o Produto:</label>
+      <select id="Nome" name="produtoExistenteAtualizar" required>
+          <!-- Opções de produtos existentes aqui -->
+      </select>
+      
+      <label for="novoPrecoProduto">Novo Preço:</label>
+      <input type="text" id="Preco" name="novoPrecoProduto" required>
+
+      <button type="submit">Atualizar</button>
+  `;
+
+  interface.appendChild(formulario);
+  overlay.appendChild(interface);
+  document.body.appendChild(overlay);
+
+  document.body.style.overflow = 'hidden';
+
+  formulario.addEventListener('submit', function (event) {
+      event.preventDefault();
+      // Lógica para atualizar o preço do produto
+      fecharInterface();
+  });
+}
+
+function abrirInterfaceVisualizar() {
+  var overlay = document.createElement('div');
+  overlay.className = 'overlay';
+
+  var interface = document.createElement('div');
+  interface.className = 'interface';
+
+  var formulario = document.createElement('form');
+  formulario.innerHTML = `
+      <label for="produtoExistenteVisualizar">Selecione o Produto:</label>
+      <select id="Nome" name="produtoExistenteVisualizar" required>
+          <!-- Opções de produtos existentes aqui -->
+      </select>
+
+      <button type="submit">Visualizar</button>
+  `;
+
+  interface.appendChild(formulario);
+  overlay.appendChild(interface);
+  document.body.appendChild(overlay);
+
+  document.body.style.overflow = 'hidden';
+
+  formulario.addEventListener('submit', function (event) {
+      event.preventDefault();
+      // Lógica para visualizar as informações do produto
+      fecharInterface();
+  });
 }
 
 

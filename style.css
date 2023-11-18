@@ -98,6 +98,32 @@ body {
     color: #2F2325;
 }
 
+.botao3{
+    background-color: #5eb4db;
+    width: 10rem;
+    height: 3rem;
+    border: none;
+    box-shadow: 4px 5px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    font-family: 'Sarala', sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+    color: #2F2325;
+}
+
+.botao4{
+    background-color: #5eb4db;
+    width: 10rem;
+    height: 3rem;
+    border: none;
+    box-shadow: 4px 5px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    font-family: 'Sarala', sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+    color: #2F2325;
+}
+
 .botao1:active {
     background-color: #90c7e0
 }
@@ -106,6 +132,13 @@ body {
     background-color: #90c7e0
 }
  
+.botao3:active {
+    background-color: #90c7e0
+}
+
+.botao4:active {
+    background-color: #90c7e0
+}
 
 .rodape {
     display: flex;
